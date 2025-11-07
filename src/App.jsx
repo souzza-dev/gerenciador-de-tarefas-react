@@ -58,10 +58,10 @@ function App(){
 
   return(
 
-    <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
+    <div className="min-h-screen bg-black flex justify-center p-4 sm:p-6">
 
-      <div className="w-[500px] space-y-4">
-        <h1 className="text-3xl text-slate-100 font-bold text-center">
+      <div className="w-full max-w-md space-y-4">
+        <h1 className="text-2xl sm:text-3xl text-slate-100 font-bold text-center">
           Gerenciador de tarefas
         </h1>
         <AddTask onAddTaskSubmit={onAddTaskSubmit}/>
