@@ -46,15 +46,25 @@ function App(){
     setTask(newTasks)
   }
 
+  function getNextId(tasks) {
+  if (!tasks || tasks.length === 0) return 1;
+  // converte ids existentes para número (caso sejam strings)
+  const nums = tasks.map(t => Number(t.id) || 0);
+  return Math.max(...nums) + 1;
+}
+
   function onAddTaskSubmit(title, description){
+  setTask((prevTasks) => {
+    const newId = getNextId(prevTasks);
     const newTask = {
-      id: v4(),
+      id: newId,
       title,
       description,
       isComplete: false,
-    }
-    setTask([...tasks, newTask])
-  }
+    };
+    return [...prevTasks, newTask];
+  });
+}
 
   return(
 
