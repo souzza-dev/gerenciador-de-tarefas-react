@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 function AddTask({onAddTaskSubmit}){
-    let [title, setTitle] = useState("title")
-    let [description, setDescription] = useState("description")
+    let [title, setTitle] = useState("")
+    let [description, setDescription] = useState("")
 
     return(
         <div className="list-none space-y-4 p-6 bg-slate-200 rounded-md shadow flex flex-col">
@@ -24,11 +24,12 @@ function AddTask({onAddTaskSubmit}){
                 onClick={() => {
                     if( !title.trim() || !description.trim() ){
                         alert("Preencha os campos corretamente")
+                        return
                     }
 
                     onAddTaskSubmit(title, description)
-                    setTitle = ("")
-                    setDescription = ("")
+                    setTitle("")
+                    setDescription("")
                 }} 
                 className="bg-slate-500 text-white px-4 py-2 rounded-md font-medium">
                     Adicionar
